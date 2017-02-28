@@ -3,7 +3,7 @@ package hmt.hckthn.cm.ui;
 
 import java.io.Serializable;
 
-public class BGElement implements Serializable
+public class HElement implements Serializable
 {
     private String type;
     private int xPosition;

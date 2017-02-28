@@ -1,5 +1,6 @@
 package hmt.hckthn.cm.ui;
 
+import android.app.Activity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -8,12 +9,12 @@ import android.widget.TextView;
 
 import hmt.hckthn.cm.hckthn.R;
 
-public class ResultActivity extends AppCompatActivity
+public class ResultActivity extends Activity
 {
 
     public static final String EXTRA_RESULT = "result";
 
-    private BGData result;
+    private HData result;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -23,34 +24,34 @@ public class ResultActivity extends AppCompatActivity
 
 
         TextView tvInfo, tvInviteCode;
-        Vuuu vuu;
+        HShapeDrawView hShapeDrawView;
 
         tvInfo = (TextView) findViewById(R.id.tv_hmt_result);
-        vuu = (Vuuu) findViewById(R.id.vuu_hmt_result);
+        hShapeDrawView = (HShapeDrawView) findViewById(R.id.vuu_hmt_result);
         tvInviteCode = (TextView) findViewById(R.id.tv_hmt_invite_code_result);
 
         try
         {
-            result = (BGData) getIntent().getSerializableExtra(EXTRA_RESULT);
+            result = (HData) getIntent().getSerializableExtra(EXTRA_RESULT);
         }
         catch (Exception exp)
         {
-            Log.w("HMT", exp);
+            result = new HData();
+            result.setCode(-1);
+            result.setMessage("No Extra");
         }
 
         String rr ;
-        if(result != null && result.getCode() == 0)
+        if(result.getCode() != -1)
         {
-            Log.e("HMT", "__1__");
-            vuu.setVisibility(View.VISIBLE);
-            vuu.setElements(result.getElements());
+            hShapeDrawView.setVisibility(View.VISIBLE);
+            hShapeDrawView.setElements(result.getElements());
             rr = result.getMessage();
             tvInviteCode.setText(result.getInviteCode());
         }
         else
         {
-            Log.e("HMT", "__2__");
-            vuu.setVisibility(View.INVISIBLE);
+            hShapeDrawView.setVisibility(View.INVISIBLE);
             rr = result.getMessage();
         }
 

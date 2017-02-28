@@ -4,12 +4,12 @@ package hmt.hckthn.cm.ui;
 import java.io.Serializable;
 import java.util.List;
 
-public class BGData implements Serializable
+public class HData implements Serializable
 {
     private String inviteCode;
     private int code;
     private String msg;
-    private List<BGElement> elements;
+    private List<HElement> elements;
 
     public String getInviteCode()
     {
@@ -31,7 +31,7 @@ public class BGData implements Serializable
     {
         this.msg = msg;
     }
-    public List<BGElement> getElements()
+    public List<HElement> getElements()
     {
         return elements;
     }

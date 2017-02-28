@@ -1,5 +1,6 @@
 package hmt.hckthn.cm.ui;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -18,7 +19,7 @@ import java.util.HashMap;
 
 import hmt.hckthn.cm.hckthn.R;
 
-public class Dispatcher extends AppCompatActivity
+public class Dispatcher extends Activity
 {
     private ProgressBar progressBar;
     @Override
@@ -47,18 +48,18 @@ public class Dispatcher extends AppCompatActivity
             public void onReceive(JSONObject data, Exception exp)
             {
                 progressBar.setVisibility(View.GONE);
-                BGData bgData;
+                HData bgData;
                 if(exp == null)
                 {
                     Log.e("HMT", data.toString());
                     try
                     {
-                        bgData = (BGData) new ClassParser().jsonToClass(data, BGData.class);
+                        bgData = (HData) new ClassParser().jsonToClass(data, HData.class);
                     }
                     catch (Exception e)
                     {
                         Log.w("HMT", e);
-                        bgData = new BGData();
+                        bgData = new HData();
                         bgData.setCode(-1);
                         bgData.setMessage(e.getMessage());
                     }
@@ -66,7 +67,7 @@ public class Dispatcher extends AppCompatActivity
                 else
                 {
                     Log.w("HMT", exp);
-                    bgData = new BGData();
+                    bgData = new HData();
                     bgData.setCode(-1);
                     bgData.setMessage(exp.getMessage());
                 }
@@ -75,7 +76,7 @@ public class Dispatcher extends AppCompatActivity
         }).execute();
     }
 
-    private void callResultActiivty(BGData result)
+    private void callResultActiivty(HData result)
     {
         Intent intent = new Intent(this, ResultActivity.class);
         intent.putExtra(ResultActivity.EXTRA_RESULT, result);

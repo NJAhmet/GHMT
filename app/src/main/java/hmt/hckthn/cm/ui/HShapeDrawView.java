@@ -11,30 +11,30 @@ import android.view.View;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Vuuu extends View
+public class HShapeDrawView extends View
 {
-    private List<BGElement> elements;
+    private List<HElement> elements;
     private Paint paint;
 
-    public Vuuu(Context context)
+    public HShapeDrawView(Context context)
     {
         super(context);
         initialize();
     }
 
-    public Vuuu(Context context, AttributeSet attrs)
+    public HShapeDrawView(Context context, AttributeSet attrs)
     {
         super(context, attrs);
         initialize();
     }
 
-    public Vuuu(Context context, AttributeSet attrs, int defStyleAttr)
+    public HShapeDrawView(Context context, AttributeSet attrs, int defStyleAttr)
     {
         super(context, attrs, defStyleAttr);
         initialize();
     }
 
-    public void setElements(List<BGElement> elements_)
+    public void setElements(List<HElement> elements_)
     {
         if(elements != null) elements.clear();
         else elements = new ArrayList<>();
@@ -54,7 +54,7 @@ public class Vuuu extends View
 
         if(elements != null)
         {
-            for(BGElement element: elements)
+            for(HElement element: elements)
             {
                 paint.setColor(Color.parseColor("#"+element.getColor()));
                 if(element.getType().equals("circle"))

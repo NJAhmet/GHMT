@@ -1,9 +1,7 @@
 package hmt.hckthn.cm.ui;
 
 import android.app.Activity;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -14,7 +12,6 @@ public class ResultActivity extends Activity
 
     public static final String EXTRA_RESULT = "result";
 
-    private HData result;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -22,13 +19,13 @@ public class ResultActivity extends Activity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
 
-
+        HData result;
         TextView tvInfo, tvInviteCode;
         HShapeDrawView hShapeDrawView;
 
-        tvInfo = (TextView) findViewById(R.id.tv_hmt_result);
+        tvInfo = (TextView) findViewById(R.id.tv_result_message);
         hShapeDrawView = (HShapeDrawView) findViewById(R.id.vuu_hmt_result);
-        tvInviteCode = (TextView) findViewById(R.id.tv_hmt_invite_code_result);
+        tvInviteCode = (TextView) findViewById(R.id.tv_invite_code);
 
         try
         {

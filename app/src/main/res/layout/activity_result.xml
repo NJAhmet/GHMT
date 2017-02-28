@@ -9,28 +9,50 @@
     android:background="#FF000000"
     android:padding="10dp">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/tv_hmt_result"
-        android:textSize="20sp"
-        android:textColor="#FFFFFFFF"/>
 
-    <hmt.hckthn.cm.ui.HShapeDrawView
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:weightSum="100"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/items_background"
+        android:id="@+id/ly_top_info_layout">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="40"
+            android:id="@+id/tv_result_message"
+            android:textColor="#FF000000"
+            android:gravity="center"/>
+        <RelativeLayout
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:background="#FF000000"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="60"
+            android:gravity="center"
+            android:textColor="#FFFF0000"
+            android:id="@+id/tv_invite_code"/>
+    </LinearLayout>
+
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="10dp"
-        android:id="@+id/vuu_hmt_result"
-        android:layout_below="@+id/tv_hmt_invite_code_result"/>
+        android:layout_below="@+id/ly_top_info_layout"
+        android:background="@drawable/view_background"
+        android:padding="5dp">
+        <hmt.hckthn.cm.ui.HShapeDrawView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/vuu_hmt_result"/>
+    </RelativeLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/tv_hmt_invite_code_result"
-        android:textSize="20sp"
-        android:textColor="#FFFFFFFF"
-        android:layout_below="@+id/tv_hmt_result"
-        android:layout_centerHorizontal="true"/>
+
+
 </RelativeLayout>
